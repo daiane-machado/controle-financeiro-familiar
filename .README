@@ -1,0 +1,36 @@
+# Cadastrar receitas e despesas do mês e gerar um relatório mensal
+
+## Receitas
+[x] - Cadastar receitas com id, descrição, valor, data e categoria
+[] - Dados id, decrição, valor e data são obrigatórios
+[] - Dados de categoria é opcional
+[] - Deixar categoria como Outras caso não seja informada nenhuma
+[] - Não permitir o cadastro com a mesma descrição
+[] - Listar receitas os seguintes dados: descrição, valor e data
+[] - Lista receitas pela descrição (ex. GET /receitas?descricao=xpto)
+[] - Listar receitas por mês (ex. /receitas/{ano}/{mes}.)
+[] - Detalhar receita especifica(id) descrição, valor e data
+[] - Atualizar receita especifica(id). Id, decrição, valor, e data são obrigatórios
+[] - Excluir receita especifica(id)
+
+## Despesas
+[] - Cadastar depesas com id, descrição, valor, data e categoria
+[] - Dados id, decrição, valor e data são obrigatórios
+[] - Dados de categoria é opcional
+[] - Deixar categoria como Outras caso não seja informada nenhuma
+[] - Não permitir o cadastro com a mesma descrição
+[] - Listar despesas os seguintes dados: descrição, valor e data
+[] - Lista despesas pela descrição (ex. GET /despesas?descricao=xpto)
+[] - Listar despesas por mês (ex. /despesas/{ano}/{mes}.)
+[] - Detalhar despesas especifica(id) descrição, valor e data
+[] - Atualizar despesas especifica(id). Id, decrição, valor, e data são obrigatórios
+[] - Excluir despesas especifica(id)
+
+## Resumo
+[] - Trazer valor total de receitas no mês
+[] - Trazer valor total de despesas no mês
+[] -Trazer saldo final no mês
+[] - trazer valor gastos no mês em cada uma das categorias
+
+## Banco de dados
+[] - Fazer persistência de dados
