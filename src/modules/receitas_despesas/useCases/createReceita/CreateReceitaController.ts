@@ -13,7 +13,7 @@ class CreateReceitaController {
 
         await createReceitaUseCase.execute({ descricao, valor, categoria });
 
-        return response.status(201).send();
+        return response.status(201).json("Receita adicionada!");
     }
 }
 

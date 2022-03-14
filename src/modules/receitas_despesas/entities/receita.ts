@@ -29,4 +29,5 @@ class Receita {
 
 }
 
+
 export { Receita }
