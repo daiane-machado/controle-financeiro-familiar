@@ -15,7 +15,7 @@ class Receita {
     valor!: number;
 
     @Column()
-    categoria!: string;
+    categoria?: string;
 
     @CreateDateColumn()
     data = new Date();

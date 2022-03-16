@@ -32,15 +32,23 @@ class ReceitaRepository implements IReceitaRepository {
 
     async findByDescricao(descricao: string): Promise <Receita | undefined> {
         const receita = await this.repository.findOne({ descricao });
+    
         return receita;
 
+    }
+
+    async findById(id: string): Promise<Receita | undefined> {
+        const receita = await this.repository.findOne(id);
+
+        return receita;
     }
     
     async list(): Promise<Receita[]> {
         //const receitas = await this.repository.find();
         //return receitas;
-        return this.repository.query('SELECT descricao, valor, data FROM receita')
-    
+        return this.repository.createQueryBuilder("receita")
+        .select("receita.descricao, receita.valor, receita.data")
+        .getRawMany();
     }
 
     async listByMes(ano: string, mes: string): Promise<Receita[]> {
@@ -48,7 +56,6 @@ class ReceitaRepository implements IReceitaRepository {
         const newMes = parseInt (mes);
         const newAno = parseInt (ano);
         
-
         return this.repository.createQueryBuilder("receita")
         .where("EXTRACT(MONTH FROM data) = :mes AND EXTRACT(YEAR FROM data) = :ano" ,{mes:`${newMes}`, ano:`${newAno}`})
         .getMany();
@@ -57,22 +64,33 @@ class ReceitaRepository implements IReceitaRepository {
     async searchByDescricao(param: string): Promise<Receita[]> {
         //return this.repository.query('SELECT descricão, valor, date FROM receita WHERE ')
         return this.repository.createQueryBuilder("receita")
+        .select("receita.descricao, receita.valor, receita.data")
         .where("receita.descricao ILIKE :param", {param: `%${param}%`})
-        .getMany();
+        .getRawMany();
 
-    }
-
-
-    async findById(id: string): Promise<Receita | undefined> {
-        const receita = await this.repository.findOne({ id });
-        return receita;
     }
 
     async deleteId( id : string): Promise<void>{       
         await this.repository.delete(id);
     }
-   
-    
+
+    async update(id: string, valor:number, descricao: string, categoria: string ): Promise<void> {
+        
+       await this.repository.createQueryBuilder("receita")
+        .update(Receita)
+        .set({valor: valor, descricao: descricao, categoria: categoria})
+        .where("id= :id", {id: id})
+        .execute();
+    }
+
+    async detail(id: string): Promise<Receita | undefined> {
+       
+       return this.repository.createQueryBuilder("receita")
+        .select("receita.descricao, receita.valor, receita.data")
+        .where("id= :id", {id:id})
+        .getRawOne();
+    }
+
 }
 
 export { ReceitaRepository }

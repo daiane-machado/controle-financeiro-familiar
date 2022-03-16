@@ -11,7 +11,7 @@ class SearchReceitaController{
         
         const all = await searchReceitaUseCase.execute(param);
 
-        return response.json(all);
+        return response.status(201).json(all);
 
     }
 }

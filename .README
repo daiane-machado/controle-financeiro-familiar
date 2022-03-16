@@ -7,7 +7,7 @@
 [x] - Não permitir o cadastro com a mesma descrição
 [x] - Listar receitas com os seguintes dados: descrição, valor e data
 [x] - Buscar receitas pela descrição (ex. GET /receitas?descricao=xpto)
-[] - Listar receitas por mês (ex. /receitas/{ano}/{mes}.)
+[x] - Listar receitas por mês (ex. /receitas/{ano}/{mes}.)
 [] - Detalhar receita especifica(id) descrição, valor e data
 [] - Atualizar receita especifica(id). Id, decrição, valor, e data são obrigatórios
 [x] - Excluir receita especifica(id). Não permitir excluir receitas não existentes
