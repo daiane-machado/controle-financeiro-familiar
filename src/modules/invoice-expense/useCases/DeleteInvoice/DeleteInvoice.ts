@@ -1,19 +1,19 @@
 import { Request, Response }from "express";
 import { container } from "tsyringe";
-import { DeleteReceitaUseCase } from "./DeleteReceitaUseCase"
+import { DeleteInvoiceUseCase } from "./DeleteInvoiceUseCase"
 
 
-class DeleteReceitaController {
+class DeleteInvoiceController {
 
     async handle(request: Request, response: Response) : Promise <Response>{
         const { id } = request.params;
                
-        const deleteReceitaUseCase = container.resolve(DeleteReceitaUseCase);
+        const deleteInvoiceUseCase = container.resolve(DeleteInvoiceUseCase);
 
-        await deleteReceitaUseCase.execute({id});
+        await deleteInvoiceUseCase.execute({id});
 
         return response.status(201).json("Receita deletada!");
     }
 }
 
-export { DeleteReceitaController }
+export { DeleteInvoiceController }

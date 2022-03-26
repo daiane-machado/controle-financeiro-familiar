@@ -2,23 +2,23 @@ import { v4 as uuidV4 } from "uuid";
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
 
-@Entity("receita")
-class Receita {
+@Entity("invoice")
+class Invoice {
 
     @PrimaryColumn()
     id?: string;
 
     @Column()
-    descricao!: string;
+    description!: string;
 
     @Column()
-    valor!: number;
+    value!: number;
 
     @Column()
-    categoria?: string;
+    category?: string;
 
     @CreateDateColumn()
-    data = new Date();
+    date = new Date();
 
 
     constructor(){
@@ -30,4 +30,4 @@ class Receita {
 }
 
 
-export { Receita }
+export { Invoice }
